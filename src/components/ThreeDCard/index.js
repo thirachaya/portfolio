@@ -84,9 +84,11 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
   curve.curveType = 'chordal';
   texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
 
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+
   return (
     <>
-      <group position={[2.5, 4, 0]}>
+      <group position={isMobile ? [0.65, 4, 0] : [2.5, 4, 0]} >
         <RigidBody ref={fixed} {...segmentProps} type="fixed" />
         <RigidBody position={[0.5, 0, 0]} ref={j1} {...segmentProps}>
           <BallCollider args={[0.1]} />
@@ -100,8 +102,8 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
         <RigidBody position={[2, 0, 0]} ref={card} {...segmentProps} type={dragged ? 'kinematicPosition' : 'dynamic'}>
           <CuboidCollider args={[0.8, 1.125, 0.01]} />
           <group
-            scale={1.75}
-            position={[0.01, -0.65, -0.05]}
+            scale={isMobile ? 1 : 1.75}
+            position={isMobile ? [0, 0.25, -0.05] : [0.01, -0.65, -0.05]}
             onPointerOver={() => hover(true)}
             onPointerOut={() => hover(false)}
             onPointerUp={(e) => (e.target.releasePointerCapture(e.pointerId), drag(false))}
@@ -116,7 +118,7 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
       </group>
       <mesh ref={band}>
         <meshLineGeometry />
-        <meshLineMaterial color="white" depthTest={false} resolution={[width, height]} useMap map={texture} repeat={[-4, 1]} lineWidth={0.9} />
+        <meshLineMaterial color="white" depthTest={false} resolution={[width, height]} useMap map={texture} repeat={[-4, 1]} lineWidth={isMobile ? 0.6 : 0.9} />
       </mesh>
 
     </>
