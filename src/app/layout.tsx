@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ReactNode } from "react";
 import { Poppins } from 'next/font/google';
+import ThreeDCardScene from "@/components/ThreeDCard/index";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -18,9 +19,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={poppins.className}>
+    <html lang="en" className={`${poppins.className} scroll-smooth`}>
       <body className="bg-white text-gray-800">
         <Navbar />
+        <ThreeDCardScene />
         <main>{children}</main>
         <Footer />
       </body>

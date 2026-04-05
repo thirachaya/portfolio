@@ -1,8 +1,6 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-// import Image from 'next/image';
-// import { is } from '@react-three/fiber/dist/declarations/src/core/utils';
 
 export default function AboutSection() {
     const [isMobile, setIsMobile] = useState(false);
@@ -40,13 +38,6 @@ export default function AboutSection() {
     return (
         <section id="about" className={`flex flex-col items-center justify-center p-4 w-full h-auto`}>
             <div>
-                {/* {!isMobile && (
-                    <div className={`${isMobile ? 'w-[60%]' : 'w-[68%]'}`}>
-                        <p className="text-gray-800 leading-relaxed">
-                            Currently a software developer with {getWorkDuration()} of experience building and supporting business applications. Working across both frontend and backend with Angular, C#, and SQL, with a strong focus on data, reporting, and internal tools. Continuously learning and growing to become a more well-rounded software engineer.
-                        </p>
-                    </div>
-                )} */}
                 {isMobile && (
                     <div className={`${isMobile ? 'w-[60%]' : 'w-[68%]'}`}>
                         <p className="text-gray-800 leading-relaxed">
