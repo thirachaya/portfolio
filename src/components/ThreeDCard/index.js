@@ -44,10 +44,11 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
   const [curve] = useState(() => new THREE.CatmullRomCurve3([new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()]));
   const [dragged, drag] = useState(false);
   const [hovered, hover] = useState(false);
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
-  useRopeJoint(fixed, j1, [[0, 0, 0], [0, 0, 0], 1]); // prettier-ignore
-  useRopeJoint(j1, j2, [[0, 0, 0], [0, 0, 0], 1]); // prettier-ignore
-  useRopeJoint(j2, j3, [[0, 0, 0], [0, 0, 0], 1]); // prettier-ignore
+  useRopeJoint(fixed, j1, [[0, 0, 0], [0, 0, 0], isMobile ? 0.55 : 0.85]); // prettier-ignore
+  useRopeJoint(j1, j2, [[0, 0, 0], [0, 0, 0], isMobile ? 0.85 : 1]); // prettier-ignore
+  useRopeJoint(j2, j3, [[0, 0, 0], [0, 0, 0], isMobile ? 0.85 : 1]); // prettier-ignore
   useSphericalJoint(j3, card, [[0, 0, 0], [0, 1.45, 0]]); // prettier-ignore
 
   useEffect(() => {
@@ -85,11 +86,10 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
   curve.curveType = 'chordal';
   texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
 
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-
   return (
     <>
-      <group position={isMobile ? [0.65, 4, 0] : [2.5, 4, 0]} >
+      {/* left/right */}
+      <group position={isMobile ? [0.55, 4, 0] : [2.5, 4, 0]} >
         <RigidBody ref={fixed} {...segmentProps} type="fixed" />
         <RigidBody position={[0.5, 0, 0]} ref={j1} {...segmentProps}>
           <BallCollider args={[0.1]} />
@@ -103,14 +103,15 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
         <RigidBody position={[2, 0, 0]} ref={card} {...segmentProps} type={dragged ? 'kinematicPosition' : 'dynamic'}>
           <CuboidCollider args={[0.8, 1.125, 0.01]} />
           <group
-            scale={isMobile ? 1 : 1.75}
-            position={isMobile ? [0, 0.25, -0.05] : [0.01, -0.65, -0.05]}
+            scale={isMobile ? 0.8 : 1.75}
+            // up/down
+            position={isMobile ? [0, 0.5, -0.05] : [0.01, -0.65, -0.05]}
             onPointerOver={() => hover(true)}
             onPointerOut={() => hover(false)}
             onPointerUp={(e) => (e.target.releasePointerCapture(e.pointerId), drag(false))}
             onPointerDown={(e) => (e.target.setPointerCapture(e.pointerId), drag(new THREE.Vector3().copy(e.point).sub(vec.copy(card.current.translation()))))}>
             <mesh geometry={nodes.card.geometry}>
-              <meshPhysicalMaterial map={materials.base.map} map-anisotropy={16} clearcoat={1} clearcoatRoughness={0.15} roughness={0.3} metalness={0.5} />
+              <meshPhysicalMaterial map={materials.base.map} map-anisotropy={16} clearcoat={1} clearcoatRoughness={0.2} roughness={0.3} metalness={0.5} />
             </mesh>
             <mesh geometry={nodes.clip.geometry} material={materials.metal} material-roughness={0.3} />
             <mesh geometry={nodes.clamp.geometry} material={materials.metal} />
@@ -119,9 +120,8 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
       </group>
       <mesh ref={band}>
         <meshLineGeometry />
-        <meshLineMaterial color="white" depthTest={false} resolution={[width, height]} useMap map={texture} repeat={[-4, 1]} lineWidth={isMobile ? 0.6 : 0.9} />
+        <meshLineMaterial color="white" depthTest={false} resolution={[width, height]} useMap map={texture} repeat={[-5, 1]} lineWidth={isMobile ? 0.3 : 0.8} />
       </mesh>
-
     </>
   );
 }
