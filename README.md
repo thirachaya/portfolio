@@ -1,4 +1,4 @@
-## 🦫 About Me & This Project
+## 🦫 About Me & This Project **Last Updated:** April 6, 2026
 
 There was a time when I took almost a month away from development. During that moment, I often doubted myself
 
