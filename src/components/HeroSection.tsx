@@ -50,9 +50,9 @@ export default function HeroSection() {
       )}
       <div className={`${isMobile ? 'text-left items-start' : 'text-center items-center'} p-4 w-[70%] h-full flex flex-col justify-center gap-1`}>
         <h1 className="text-xl tracking-wide">Hello, I am</h1>
-        <p className={`${isMobile ? 'text-2xl' : 'text-5xl'} font-medium tracking-[0.1em] bg-clip-text text-transparent bg-gradient-to-r from-blue-900 to-teal-600`}>Teerachaya Ngaesanthea,</p>
+        <p className={`${isMobile ? 'text-2xl' : 'text-5xl'} font-medium tracking-[0.1em] bg-clip-text text-transparent bg-gradient-to-r from-blue-900 to-teal-600 dark:from-sky-300 dark:to-emerald-300`}>Teerachaya Ngaesanthea,</p>
         <p className={`${isMobile ? 'text-md' : 'text-xl'}`}>
-          I am a <span className="font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-900 to-teal-600">software developer</span> driven to grow into a software engineer.
+          I am a <span className="font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-900 to-teal-600 dark:from-sky-200 dark:to-emerald-300">software developer</span> driven to grow into a software engineer.
         </p>
         {!isMobile && (
           <div className={`w-[70%] flex flex-col items-center justify-start`}>
