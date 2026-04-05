@@ -46,7 +46,7 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
   const [hovered, hover] = useState(false);
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
-  useRopeJoint(fixed, j1, [[0, 0, 0], [0, 0, 0], isMobile ? 0.55 : 0.85]); // prettier-ignore
+  useRopeJoint(fixed, j1, [[0, 0, 0], [0, 0, 0], isMobile ? 1.25 : 0.85]); // prettier-ignore
   useRopeJoint(j1, j2, [[0, 0, 0], [0, 0, 0], isMobile ? 0.85 : 1]); // prettier-ignore
   useRopeJoint(j2, j3, [[0, 0, 0], [0, 0, 0], isMobile ? 0.85 : 1]); // prettier-ignore
   useSphericalJoint(j3, card, [[0, 0, 0], [0, 1.45, 0]]); // prettier-ignore
