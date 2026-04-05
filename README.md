@@ -1,4 +1,14 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## 🦫 About Me & This Project
+
+There was a time when I took almost a month away from development. During that moment, I often doubted myself
+
+> *Am I not good enough? Why do I feel so lost?*  
+
+Coming back to update this project made me realize something important. coding isn’t just work, it’s where I find real happiness and purpose. Updating this portfolio reminded me of why I became a developer in the first place creating, solving problems, and bringing ideas to life through code.  
+
+This project is a reflection of that rediscovery. a reminder to keep growing, learning, and enjoying the journey.
+
+---
 
 ## Getting Started
 
