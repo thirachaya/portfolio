@@ -7,6 +7,11 @@ export default function Navbar() {
         <a href="#about">Skills</a>
         <a href="#experience">Experience</a>
         <a href="#contact">Contact</a>
+        <a href="/assets/Resume_SE_TeerachayaNgaesanthea.pdf"
+          download
+          className="ml-2 px-4 py-1.5 text-sm font-medium bg-teal-600 text-white rounded-lg hover:bg-teal-500 transition">
+          Download CV
+        </a>
       </div>
     </nav>
   );
