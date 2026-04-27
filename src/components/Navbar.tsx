@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,11 +13,11 @@ export default function Navbar() {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-4">
-          <a href="/">Home</a>
-          <a href="/#about">Skills</a>
-          <a href="/#experience">Experience</a>
-          <a href="/projects">Projects</a>
-          <a href="/#contact">Contact</a>
+          <Link href="/">Home</Link>
+          <Link href="#about">Skills</Link>
+          <Link href="#experience">Experience</Link>
+          <Link href="/projects">Projects</Link>
+          <Link href="#contact">Contact</Link>
 
           <a
             href="/assets/Resume_SE_TeerachayaNgaesanthea.pdf"
@@ -48,11 +49,11 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden flex flex-col gap-3 px-4 pb-4 text-sm">
-          <a href="/" onClick={() => setIsOpen(false)}>Home</a>
-          <a href="/#about" onClick={() => setIsOpen(false)}>Skills</a>
-          <a href="/#experience" onClick={() => setIsOpen(false)}>Experience</a>
-          <a href="/projects" onClick={() => setIsOpen(false)}>Projects</a>
-          <a href="/#contact" onClick={() => setIsOpen(false)}>Contact</a>
+          <Link href="/" onClick={() => setIsOpen(false)}>Home</Link>
+          <Link href="#about" onClick={() => setIsOpen(false)}>Skills</Link>
+          <Link href="#experience" onClick={() => setIsOpen(false)}>Experience</Link>
+          <Link href="/projects" onClick={() => setIsOpen(false)}>Projects</Link>
+          <Link href="#contact" onClick={() => setIsOpen(false)}>Contact</Link>
         </div>
       )}
     </nav>
