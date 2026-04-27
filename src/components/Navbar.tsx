@@ -9,7 +9,7 @@ export default function Navbar() {
   return (
     <nav className="sticky top-0 z-50 bg-white shadow-md">
       <div className="flex justify-between items-center p-4">
-        <h1 className="text-xl font-bold"><a href="/">🦫</a></h1>
+        <h1 className="text-xl font-bold"><Link href="/">🦫</Link></h1>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-4">
