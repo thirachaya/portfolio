@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function ContactSection() {
     const [isMobile, setIsMobile] = useState(false);
@@ -25,7 +26,7 @@ export default function ContactSection() {
                 alt=""
                 width={400}
                 height={400}
-                className="rounded-full object-cover w-[15%]"/>
+                className="rounded-full object-cover w-[15%]" />
             <div className="w-full max-w-3xl text-center">
                 <h2 className="text-2xl font-semibold mb-4">Get in Touch</h2>
                 <p className="text-gray-600 mb-8">
@@ -57,6 +58,10 @@ export default function ContactSection() {
                         className="px-4 py-2 text-sm bg-sky-800 text-white rounded-lg hover:bg-sky-500 transition">
                         LinkedIn
                     </a>
+                    <Link href="/projects"
+                        className="px-4 py-2 text-sm bg-blue-200 text-sky-800 rounded-lg hover:bg-blue-500 hover:text-white transition">
+                        Projects
+                    </Link>
                 </div>
             </div>
             {!isMobile && (
@@ -65,7 +70,7 @@ export default function ContactSection() {
                     alt=""
                     width={400}
                     height={400}
-                    className="rounded-full object-cover w-[15%]"/>
+                    className="rounded-full object-cover w-[15%]" />
             )}
         </section>
     );
