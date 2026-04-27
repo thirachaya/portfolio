@@ -11,7 +11,7 @@ export default function Home() {
     <main className="relative min-h-screen w-full">
       <HeroSection />
       <AboutSection />
-      <ExperienceSection /> 
+      <ExperienceSection />
       <ContactSection />
     </main>
   );
