@@ -14,10 +14,10 @@ export default function Navbar() {
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-4">
           <Link href="/">Home</Link>
-          <Link href="#about">Skills</Link>
-          <Link href="#experience">Experience</Link>
+          <Link href="/#about">Skills</Link>
+          <Link href="/#experience">Experience</Link>
           <Link href="/projects">Projects</Link>
-          <Link href="#contact">Contact</Link>
+          <Link href="/#contact">Contact</Link>
 
           <a
             href="/assets/Resume_SE_TeerachayaNgaesanthea.pdf"
