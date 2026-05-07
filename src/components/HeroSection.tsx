@@ -7,23 +7,21 @@ export default function HeroSection() {
   const [isMobile, setIsMobile] = useState(false);
 
   const getWorkDuration = () => {
-        const startDate = new Date(2025, 7);
-        const now = new Date();
+    const startDate = new Date(2025, 7); 
+    const now = new Date();
 
-        let years = now.getFullYear() - startDate.getFullYear();
-        let months = now.getMonth() - startDate.getMonth();
+    let totalMonths = (now.getFullYear() - startDate.getFullYear()) * 12 + (now.getMonth() - startDate.getMonth());
 
-        if (months < 0) {
-            years--;
-            months += 12;
-        }
+    totalMonths += 1;
 
-        if (years <= 0) {
-            return `${months} month${months !== 1 ? 's' : ''}`;
-        }
+    const years = Math.floor(totalMonths / 12);
+    const months = totalMonths % 12;
 
-        return `${years} year${years !== 1 ? 's' : ''} ${months} month${months !== 1 ? 's' : ''}`;
-    };
+    const yearText = years > 0 ? `${years} year${years !== 1 ? 's' : ''} ` : '';
+    const monthText = `${months} month${months !== 1 ? 's' : ''}`;
+
+    return `${yearText}${monthText}`.trim();
+};
 
   useEffect(() => {
     const checkIsMobile = () => {
