@@ -20,7 +20,7 @@ export default function Navbar() {
           <Link href="/#contact">Contact</Link>
 
           <a
-            href="/assets/Resume_SE_TeerachayaNgaesanthea.pdf"
+            href="/assets/Resume_TeerachayaNgaesanthea.pdf"
             download
             className="ml-2 px-4 py-1.5 text-sm font-medium bg-teal-600 text-white rounded-lg hover:bg-teal-500 transition"
           >
@@ -32,7 +32,7 @@ export default function Navbar() {
         <div className="flex items-center gap-2 md:hidden">
           {/* Download CV */}
           <a
-            href="/assets/Resume_SE_TeerachayaNgaesanthea.pdf"
+            href="/assets/Resume_TeerachayaNgaesanthea.pdf"
             download
             className="px-3 py-1.5 text-xs font-medium bg-teal-600 text-white rounded-lg"
           >
